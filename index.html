@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore Fujian, China through independent outdoor experiences, local culture, cycling and hiking." />
+  <title>BareFoot Explore China — Find Your Own Way</title>
+  <style>
+    :root {
+      --ink: #17332d;
+      --muted: #64736b;
+      --paper: #f7f5ed;
+      --cream: #ebe8dc;
+      --orange: #e66b42;
+      --green: #315b48;
+      --yellow: #f0c95b;
+      --white: #fffdf8;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(var(--max), calc(100% - 44px)); margin: 0 auto; }
+    .topbar {
+      height: 78px; display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(23,51,45,.12);
+    }
+    .brand { font-size: 23px; font-weight: 900; letter-spacing: -1.3px; }
+    .brand span { color: var(--orange); }
+    nav { display: flex; gap: 28px; align-items: center; font-size: 13px; font-weight: 700; }
+    nav a:hover { color: var(--orange); }
+    .nav-cta { background: var(--ink); color: white; padding: 11px 17px; border-radius: 30px; }
+    .hero {
+      padding: 56px 0 48px; display: grid; grid-template-columns: 1.02fr .98fr;
+      gap: 44px; align-items: center;
+    }
+    .eyebrow { text-transform: uppercase; letter-spacing: 2.5px; font-size: 11px; font-weight: 800; color: var(--orange); }
+    h1 { font-size: clamp(48px, 7vw, 88px); line-height: .94; letter-spacing: -5px; margin: 20px 0 24px; font-weight: 900; }
+    h1 em { color: var(--orange); font-style: normal; }
+    .hero-copy { max-width: 510px; color: var(--muted); font-size: 17px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 20px; border-radius: 32px; font-weight: 800; font-size: 13px; border: 1px solid var(--ink); transition: .2s; }
+    .btn-dark { background: var(--ink); color: white; }
+    .btn-dark:hover { background: var(--orange); border-color: var(--orange); }
+    .btn-outline:hover { background: var(--cream); }
+    .hero-image {
+      min-height: 480px; border-radius: 8px 8px 90px 8px; overflow: hidden; position: relative;
+      background: linear-gradient(140deg, #8fae8c, #e9c68c 52%, #6a8d7a);
+    }
+    .hero-image img { width: 100%; height: 100%; min-height: 480px; object-fit: cover; }
+    .image-label { position: absolute; left: 20px; bottom: 20px; background: var(--white); padding: 10px 14px; border-radius: 4px; font-size: 12px; font-weight: 800; }
+    .stamp { position: absolute; right: -15px; top: 25px; background: var(--yellow); width: 104px; height: 104px; border-radius: 50%; display: grid; place-items: center; text-align: center; font-weight: 900; font-size: 12px; line-height: 1.2; transform: rotate(10deg); border: 2px solid var(--ink); }
+    .section { padding: 72px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 30px; }
+    h2 { font-size: clamp(34px, 4.5vw, 56px); line-height: 1; letter-spacing: -2.5px; margin: 10px 0 0; }
+    .section-head p { max-width: 420px; color: var(--muted); margin: 0; }
+    .experiences { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .experience-card { background: var(--white); border-radius: 7px; overflow: hidden; transition: transform .2s; border: 1px solid rgba(23,51,45,.08); }
+    .experience-card:hover { transform: translateY(-5px); }
+    .card-image { height: 220px; background: var(--cream); overflow: hidden; }
+    .card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .experience-card:hover img { transform: scale(1.04); }
+    .card-body { padding: 20px; }
+    .card-tag { color: var(--orange); text-transform: uppercase; font-size: 10px; letter-spacing: 1.7px; font-weight: 900; }
+    h3 { font-size: 22px; letter-spacing: -.7px; line-height: 1.15; margin: 9px 0; }
+    .card-body p { color: var(--muted); font-size: 13px; min-height: 62px; margin: 0 0 18px; }
+    .card-foot { border-top: 1px solid var(--cream); padding-top: 13px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 800; }
+    .arrow { color: var(--orange); font-size: 20px; }
+    .manifesto { background: var(--green); color: var(--white); padding: 70px 0; }
+    .manifesto-inner { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; align-items: center; }
+    .manifesto h2 { font-size: clamp(36px, 5vw, 62px); }
+    .manifesto p { color: #dbe5d8; font-size: 16px; max-width: 650px; }
+    .manifesto .eyebrow { color: var(--yellow); }
+    .values { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 35px; }
+    .value { border-top: 1px solid rgba(255,255,255,.25); padding-top: 15px; }
+    .value strong { display: block; color: var(--yellow); font-size: 13px; margin-bottom: 6px; }
+    .value span { font-size: 12px; color: #dbe5d8; }
+    .how { display: grid; grid-template-columns: repeat(3,1fr); gap: 25px; }
+    .step { padding: 22px; border: 1px solid rgba(23,51,45,.13); border-radius: 7px; }
+    .step-num { color: var(--orange); font-size: 12px; font-weight: 900; letter-spacing: 2px; }
+    .step h3 { margin-top: 14px; }
+    .step p { color: var(--muted); font-size: 14px; margin-bottom: 0; }
+    .contact { background: var(--yellow); padding: 58px 0; }
+    .contact-inner { display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+    .contact h2 { max-width: 650px; }
+    .contact p { max-width: 500px; }
+    footer { background: var(--ink); color: white; padding: 28px 0; font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; color: #d5ded6; }
+    .footer-brand { font-weight: 900; color: white; }
+    .disclaimer { max-width: 680px; text-align: right; }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 38px; }
+      .hero-image, .hero-image img { min-height: 360px; }
+      .experiences { grid-template-columns: repeat(2,1fr); }
+      .manifesto-inner { grid-template-columns: 1fr; gap: 20px; }
+      .section-head { align-items: start; flex-direction: column; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(var(--max), calc(100% - 28px)); }
+      .topbar { height: 68px; }
+      nav { gap: 12px; font-size: 11px; }
+      nav a:not(.nav-cta) { display: none; }
+      h1 { letter-spacing: -3px; }
+      .experiences, .how, .values { grid-template-columns: 1fr; }
+      .card-image { height: 240px; }
+      .contact-inner, .footer-inner { flex-direction: column; align-items: start; }
+      .disclaimer { text-align: left; }
+      .stamp { right: 5px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="brand" href="#">BareFoot<span>.</span> Explore China</a>
+    <nav aria-label="Main navigation">
+      <a href="#experiences">Experiences</a>
+      <a href="#our-way">Our way</a>
+      <a href="#how">How it works</a>
+      <a class="nav-cta" href="#contact">Say hello ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero">
+      <div>
+        <div class="eyebrow">A little closer to the real Fujian</div>
+        <h1>Find your<br><em>own way.</em></h1>
+        <p class="hero-copy">Slow down, get outside, and discover the places and stories that make Fujian unforgettable. From old-town rides to mountain trails — your next little adventure starts here.</p>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="#experiences">Explore experiences ↘</a>
+          <a class="btn btn-outline" href="#our-way">The barefoot way</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=85" alt="Mountain landscape and peaceful nature" />
+        <div class="image-label">FUJIAN, CHINA · OUTDOORS</div>
+        <div class="stamp">GO<br>OUTSIDE<br>MORE ✳</div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="experiences">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Pick your pace</div>
+          <h2>Little adventures.<br>Big memories.</h2>
+        </div>
+        <p>Four ways to see Fujian beyond the usual itinerary. Choose a route, bring your curiosity, and let the day unfold.</p>
+      </div>
+      <div class="experiences">
+        <article class="experience-card">
+          <div class="card-image"><img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=80" alt="Historic city streets" loading="lazy"></div>
+          <div class="card-body">
+            <div class="card-tag">Quanzhou · Easy ride</div>
+            <h3>Ancient City<br>Light Cycling</h3>
+            <p>Pedal through old lanes, heritage corners, and the everyday rhythm of a living historic city.</p>
+            <div class="card-foot"><span>Culture · City ride</span><a class="arrow" href="#contact" aria-label="Ask about Quanzhou cycling">↗</a></div>
+          </div>
+        </article>
+        <article class="experience-card">
+          <div class="card-image"><img src="https://images.unsplash.com/photo-1506959226493-2e8f9f2f3c3b?auto=format&fit=crop&w=900&q=80" alt="Coastal road and sea" loading="lazy"></div>
+          <div class="card-body">
+            <div class="card-tag">Xiamen · Coastal ride</div>
+            <h3>Island Ring Road<br>Light Cycling</h3>
+            <p>Follow the sea breeze along Xiamen’s coastal scenery, with time to pause and take it all in.</p>
+            <div class="card-foot"><span>Ocean · Easy ride</span><a class="arrow" href="#contact" aria-label="Ask about Xiamen cycling">↗</a></div>
+          </div>
+        </article>
+        <article class="experience-card">
+          <div class="card-image"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80" alt="Mountain range" loading="lazy"></div>
+          <div class="card-body">
+            <div class="card-tag">Longyan · 4D / 3N</div>
+            <h3>Mountain<br>Cycling Escape</h3>
+            <p>A multi-day ride into Fujian’s mountain landscapes, quiet roads, and rural scenes.</p>
+            <div class="card-foot"><span>Mountains · Multi-day</span><a class="arrow" href="#contact" aria-label="Ask about Longyan cycling">↗</a></div>
+          </div>
+        </article>
+        <article class="experience-card">
+          <div class="card-image"><img src="https://images.unsplash.com/photo-151968 /" alt="Fujian tulou-inspired rural landscape" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80'"></div>
+          <div class="card-body">
+            <div class="card-tag">Zhangzhou · Gentle hike</div>
+            <h3>Tulou &<br>Country Trails</h3>
+            <p>Explore the countryside around the remarkable tulou earthen buildings on a relaxed walk.</p>
+            <div class="card-foot"><span>Heritage · Hiking</span><a class="arrow" href="#contact" aria-label="Ask about Zhangzhou hiking">↗</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="manifesto" id="our-way">
+      <div class="wrap manifesto-inner">
+        <div>
+          <div class="eyebrow">Travel a little differently</div>
+          <h2>Less checklist.<br>More connection.</h2>
+        </div>
+        <div>
+          <p>We believe the best travel moments rarely happen when you’re rushing from one landmark to the next. They happen on a quiet lane, over a local snack, or when you take the scenic way around.</p>
+          <p>BareFoot Explore China is a starting point for curious travelers who want to explore outdoors, discover local culture, and experience the region at a human pace.</p>
+          <div class="values">
+            <div class="value"><strong>01 · LOCAL</strong><span>Look beyond the obvious and notice the details.</span></div>
+            <div class="value"><strong>02 · OUTDOORS</strong><span>Fresh air, open roads, and unhurried trails.</span></div>
+            <div class="value"><strong>03 · YOUR PACE</strong><span>Keep it flexible. Stay curious. Enjoy the ride.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="how">
+      <div class="section-head">
+        <div><div class="eyebrow">Simple as that</div><h2>How it works.</h2></div>
+        <p>Tell us what kind of day you’re dreaming about. We’ll start a conversation and explore what might fit.</p>
+      </div>
+      <div class="how">
+        <div class="step"><div class="step-num">STEP 01</div><h3>Find your adventure</h3><p>Browse the experiences and pick a place or activity that catches your eye.</p></div>
+        <div class="step"><div class="step-num">STEP 02</div><h3>Share your plans</h3><p>Let us know your dates, interests, pace, and any questions you have.</p></div>
+        <div class="step"><div class="step-num">STEP 03</div><h3>Make it your own</h3><p>Discuss the details, practical arrangements, and what is suitable for you before making plans.</p></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-inner">
+        <div><div class="eyebrow">Your Fujian story starts here</div><h2>Curious about a little adventure?</h2><p>Tell us what you’re looking for. We’re happy to hear from fellow curious travelers.</p></div>
+        <a class="btn btn-dark" href="mailto:hello@barefootexplorechina.com?subject=Hello%20Barefoot%20Fujian">Get in touch ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div><div class="footer-brand">BareFoot Explore China</div><div>Find your own way. © <span id="year"></span></div></div>
+      <div class="disclaimer">This website is an introductory platform for local outdoor and cultural experiences. Details, availability, and any required permissions or arrangements should be confirmed before participation.</div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
